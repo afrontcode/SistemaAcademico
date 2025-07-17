@@ -9,4 +9,4 @@ venv/
 .venv/
 
 # Ignorar CSV
-.csv
+*.csv
