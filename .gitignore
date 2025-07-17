@@ -1,0 +1,12 @@
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar el entorno virtual
+venv/
+.venv/
+
+# Ignorar CSV
+.csv
