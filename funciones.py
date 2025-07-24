@@ -6,9 +6,12 @@ import numpy as np
 def generar_reporte(estudiantes):
     # Crear un DataFrame con los datos de los estudiantes
     data = {
+        'Carrera': [e.carrera for e in estudiantes],
         'Nombre': [e.nombre for e in estudiantes],
         'Promedio': [e.calcular_promedio() for e in estudiantes],
         'Aprobado': [e.es_aprobado() for e in estudiantes],
+        'Beca': [e.beca for e in estudiantes],
+        'TipodeBeca': [e.tipo_beca if hasattr(e, 'tipo_beca') else '-' for e in estudiantes]
     }
     df = pd.DataFrame(data)
 
@@ -22,7 +25,7 @@ def generar_reporte(estudiantes):
     stats_data = {
         'Nombre': ['Promedio Grupal', 'Nota Máxima', 'Nota Mínima', 'Desviación Estándar'],
         'Promedio': [promedio_grupal, nota_maxima, nota_minima, desviacion_estandar],
-        'Aprobado': ['', '', '', '']  # No es necesario calcular "Aprobado" para las estadísticas
+        'Aprobado': ['', '', '', '']  # No es necesario calcular "Aprobado" para las estadísticas    
     }
     
     stats_df = pd.DataFrame(stats_data)
